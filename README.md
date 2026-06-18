@@ -54,10 +54,6 @@ Aplikasi Web 2 halaman yang menghadirkan profil portofolio profesional dan visua
 
 5. Buka browser: `http://localhost:8000`
 
-## Deployment ke Azure VM
-
-Lihat file `vm_setup_documentation.md` untuk panduan lengkap deployment ke Azure VM Ubuntu Server dengan Nginx, SSL Let's Encrypt, dan domain Namecheap.
-
 ## Struktur Proyek
 
 ```
