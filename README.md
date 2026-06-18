@@ -68,7 +68,3 @@ Aplikasi Web 2 halaman yang menghadirkan profil portofolio profesional dan visua
 ├── routes/web.php              ← Routes + sitemap generator
 └── public/robots.txt           ← SEO crawler config
 ```
-
-## Lisensi
-
-© 2026 Natanael Adrie Christiawan. All Rights Reserved.
