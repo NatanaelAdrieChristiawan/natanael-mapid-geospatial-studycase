@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /storage/
+Disallow: /vendor/
+
+Sitemap: https://domain-anda-dari-namecheap.com/sitemap.xml

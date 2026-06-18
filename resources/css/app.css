@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CUSTOM BASE STYLES
+   ============================================ */
+
+/* Premium Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+html { scroll-behavior: smooth; }
+::selection { background-color: rgba(59, 130, 246, 0.3); color: #93c5fd; }
+
+/* ============================================
+   CURSOR FLUID GRADIENT BLOB
+   Uses GPU-accelerated transforms only
+   ============================================ */
+.cursor-blob {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, rgba(99,102,241,0.04) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    transition: none;
+    filter: blur(40px);
+}
+
+/* ============================================
+   SCROLL-REVEAL ENTRANCE ANIMATIONS
+   Uses IntersectionObserver + CSS transitions
+   GPU-accelerated (transform + opacity only)
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+.reveal-delay-6 { transition-delay: 600ms; }
+
+/* Slide from left variant */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale-up variant */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================
+   3D TILT CARD EFFECT
+   Uses perspective + rotateX/Y transforms (GPU)
+   ============================================ */
+.tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+}
+
+.tilt-card:hover {
+    box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.12),
+                0 8px 16px -8px rgba(0, 0, 0, 0.3);
+}
+
+.tilt-card .tilt-inner {
+    transform: translateZ(20px);
+    transition: transform 0.3s ease;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITY
+   ============================================ */
+.glass {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+.gradient-text {
+    background: linear-gradient(135deg, #60a5fa, #818cf8, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   ANIMATED BACKGROUND GRADIENT MESH
+   Subtle, performant, GPU-only
+   ============================================ */
+.bg-gradient-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-gradient-mesh::before,
+.bg-gradient-mesh::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: meshFloat 20s ease-in-out infinite alternate;
+}
+
+.bg-gradient-mesh::before {
+    width: 50vw;
+    height: 50vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(30, 64, 175, 0.12) 0%, transparent 70%);
+    top: -10%;
+    left: -5%;
+}
+
+.bg-gradient-mesh::after {
+    width: 40vw;
+    height: 40vw;
+    max-width: 600px;
+    max-height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+    bottom: -10%;
+    right: -5%;
+    animation-delay: -10s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes meshFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.05); }
+    100% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* ============================================
+   PROFILE PHOTO STYLES
+   ============================================ */
+.profile-photo {
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3),
+                0 16px 32px -8px rgba(59, 130, 246, 0.2);
+}
