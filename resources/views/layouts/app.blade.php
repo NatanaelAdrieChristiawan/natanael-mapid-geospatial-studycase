@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
     {{-- Dynamic SEO Engine --}}
     <title>{{ $seo['title'] ?? 'Natanael Adrie Christiawan | Fullstack Developer' }}</title>
